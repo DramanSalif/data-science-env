@@ -58,7 +58,7 @@ By testing our class and its methods, we can see that:
     - All the information of the patient with  the **highest insurance charge** are: {'Age': 54, 'Sex': 'female', 'BMI': '47.41', 'Number of Children': '0', 'Smoker': 'yes', 'Region': 'southeast', 'Charge': '63770.42801'}
     - All the information of the patient with the **lowest insurance charge** are: {'Age': 18, 'Sex': 'male', 'BMI': '23.21', 'Number of Children': '0', 'Smoker': 'no', 'Region': 'southeast', 'Charge': '1121.8739'}
     
-3. Regarding the distribution of the insurance charge over the 4 distinct region
+3. Regarding the distribution of the insurance charges over the 4 distinct regions
     - By using the Z value of the corresponding [confidence interval](https://www.mathsisfun.com/data/confidence-interval.html) we want, we could calculate a margin error. Let's say we want a confidence interval of 95%, it's Z value is ```1.960```. Therefore, the margin error we got was ```648.65``` and 
 ```Confidence Interval of 95% = [12,621.77  13,919.07] ```
     - Furthermore, based on a confidence interval of 95%, we got that the Southeast region has the highest number of patients: ```238060``` with higher insurance charges than the average: ``` 13270.42 dollars ```, the patient with the highest insurance charge: ``` 63770.42801 dollars ```, and the lowest  insurance charge: ``` 1121.8739 dollars ``` in the country. It is following by the Northwest region, the Southwest region, and the Northeast region respectively with ``` 221909 ```, ``` 218976```, and ``` 215508``` patients.
