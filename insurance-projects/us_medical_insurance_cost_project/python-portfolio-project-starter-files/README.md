@@ -12,6 +12,7 @@ The data we are using is collected in a csv file named insurance.csv and provide
 ## Dataset
 
 Our dataset contains ```1338 rows``` of information about U.S. medical insurance costs of patients. This dataset is provided as ```insurance.csv``` file that has different type of attributs as sex, age, bmi, children, smoker, region, and charges. It is important to note we don't know how the data have been collected. Therefore, we don't know exactly the relationship between the variable attributs, but I can study the data satistically and infer the analysis.
+
 ![dataset](dataset_2021-12-18_154347.png)
 
 ## Goal
