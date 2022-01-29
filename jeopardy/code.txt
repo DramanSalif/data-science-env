@@ -1,0 +1,129 @@
+If you believe that you are the victim of fraud, call the Western Union Fraud Hotline at 1-800-448-1492 or visit wu.com/fraudawareness.
+
+# cleaning the values before converting them to float
+for i in range(len(df['new_Value'])):
+    if len(df.iat[i,7]) in range(5,7) :
+        #print(df.iat[i,7])
+        df.iat[i,7].split(',')
+        #print( df.at[i,'new_Value'].split(','))
+        for j in range(len( df.iat[i,7].split(','))):
+            df.iat[i,7] +=  df.iat[i,7].split(',')[j]
+            
+    elif df.iat[i,7] == 'None':
+        df.iat[i,7] = "0"
+    else:
+        df.iat[i,7] = df.iat[i,7]
+
+        
+df['new_Value'] = df.new_Value.astype(float)
+#print(df.head(26))
+
+for i in range(len(df['new_Value'])):
+    if len(df['new_Value'].iloc[i]) > 4:
+        df['new_Value'].iloc[i]= df['new_Value'].iloc[i].split(',')[0] + df['new_Value'].iloc[i].split(',')[1]
+    elif df['new_Value'].iloc[i] == "None":
+        df['new_Value'].iloc[i] = "0"
+    else:
+        df['new_Value'].iloc[i] = df['new_Value'].iloc[i]
+        
+
+
+ cleaning the values before converting them to float
+for i in range(len(df['new_Value'])):
+    if len(df.at[i,'new_Value']) > 4:
+        splitted = df.at[i,'new_Value'].split(',')
+        for j in range(len(splitted)):
+            df.at[i,'new_Value'] += splitted[j]
+    elif df.at[i,'new_Value'] == 'None':
+        df.at[i,'new_Value'] = "0"
+    else:
+        df.at[i,'new_Value'] = df.at[i,'new_Value']
+
+        
+#df['new_Value'] = df.new_Value.astype(float)
+#print(df.head(26))
+
+# Convert the " Value" column to floats
+df['new_Value'] = df['new_Value'].apply(lambda x: x.translate(x.maketrans('','', string.punctuation)) if x != 'None' else 0 ).astype(float)
+
+# Inspecting the string values in the dataset
+df.at[22,'new_Value'] = '2000'
+for i in range(len(df['new_Value'])):
+    if df.at[i,'new_Value'] == '2,000':
+        df.at[i,'new_Value'] = '2000'
+
+for i in range(len(df['new_Value'])):
+    if df.at[i,'new_Value']== '3,200':
+        df.at[i,'new_Value'] = '3200'
+
+for i in range(len(df['new_Value'])):
+    if df.at[i,'new_Value']== 'None':
+        df.at[i,'new_Value'] = 0
+
+
+for i in range(len(df['new_Value'])):
+    if df.at[i,'new_Value'] == '5,000':
+        df.at[i,'new_Value'] = '5000'
+                                                                  
+                                                                
+                                                                  
+for i in range(len(df['new_Value'])):
+    if df.at[i,'new_Value'] == '1,000':
+        df.at[i,'new_Value'] = '1000'
+
+
+
+indice_list = []
+for i in df.index:
+    if df.loc[i, 'Question'].find('King') == True:
+        indice_list.append(i)
+        
+#print(indice_list)
+Answer_list =[]
+for j in indice_list:
+    Answer_list.append(df.loc[i, 'Answer'])
+    
+df2=pd.DataFrame(Answer_list)
+
+print(df2.value_counts())
+
+#Write a function that returns the count of the unique answers to all of the questions in a dataset.
+
+
+def get_count_unique(data, word, col_label1, col_label2):
+    """This function filters the dataset for all the questions that contain the given word and returns the count of the unique answers to all of the questions in the dataset.
+
+    Args:
+        dataset, word, col_label1, col_label2: a word in the question column
+
+    Returns:
+        [type]: Dataframe 
+    """
+    indice_list = []
+    Answer_list = []
+
+     # get the indexes of the questions that contain the given word    
+    for i in data.index:
+        if data.loc[i, col_label1].find(word) == True:
+            indice_list.append(i)
+     #get the correspondent Answer for each selected indice
+    for j in indice_list:
+         Answer_list.append(data.loc[j, col_label2])
+
+      # return  a Series containing counts of unique rows in the DataFrame of Answer_list
+    unique_answer = pd.DataFrame(Answer_list).reset_index()
+    return unique_answer.value_counts() 
+
+
+            
+print(get_count_unique(df, 'King', 'Question', 'Answer'))
+
+
+
+
+filtered['decades'] = filtered.year.apply( lambda year: (1970 <= year < 1980 and '1970s') or
+                                                                (1980 <= year < 1990 and '1980s') or
+                                                                (1990 <= year < 2000 and '1990s') or
+                                                                (2000 <= year < 2010 and '2000s') or
+                                                                (2010 <= year < 2020 and '2010s')  )
+    # define decades DataFrame
